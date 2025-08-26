@@ -1,0 +1,238 @@
+import 'dart:math';
+import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
+import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/screens/home/home_screen.dart';
+import 'package:rive_animation/screens/profile/profile_page.dart';
+import 'package:rive_animation/screens/workout/sidetest.dart';
+import 'package:rive_animation/screens/workout/type_choose.dart';
+import 'package:rive_animation/screens/test2/test2.dart';
+import 'package:rive_animation/screens/test3/test3.dart';
+import 'package:rive_animation/utils/rive_utils.dart';
+
+import '../../model/menu.dart';
+import 'components/btm_nav_item.dart';
+import 'components/menu_btn.dart';
+import 'components/side_bar.dart';
+
+class EntryPoint extends StatefulWidget {
+  const EntryPoint({super.key});
+
+  @override
+  State<EntryPoint> createState() => _EntryPointState();
+}
+
+class _EntryPointState extends State<EntryPoint>
+    with SingleTickerProviderStateMixin {
+  bool isSideBarOpen = false;
+
+  late SMIBool isMenuOpenInput;
+
+  int selectedBottomIndex = 0;
+  int selectedSideIndex = 0;
+
+  /// Bottom nav pages
+  final List<Widget> bottomNavPages = [
+    const HomePage(),
+    const TypeChose(),
+    const Test2(),
+    const Test3(),
+    const Profile(),
+  ];
+
+  /// Sidebar pages
+  final List<Widget> sideBarPages = [
+    const HomePage(),
+    const Sidetest(),
+    const Test2(),
+    const Test3(),
+  ];
+
+  late AnimationController _animationController;
+  late Animation<double> scaleAnimation;
+  late Animation<double> slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 200),
+    )..addListener(() {
+        setState(() {});
+      });
+
+    scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
+    );
+
+    slideAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void selectBottomNav(int index, Menu navBar) {
+    RiveUtils.chnageSMIBoolState(navBar.rive.status!);
+    setState(() {
+      selectedBottomIndex = index;
+    });
+  }
+
+  void selectSideMenu(int index) {
+    if (index >= sideBarPages.length) return;
+
+    if (isSideBarOpen) {
+      _animationController.reverse();
+      isSideBarOpen = false;
+      isMenuOpenInput.value = false;
+    }
+
+    int bottomIndex = bottomNavPages.indexWhere(
+        (page) => page.runtimeType == sideBarPages[index].runtimeType);
+
+    if (bottomIndex != -1) {
+      setState(() {
+        selectedBottomIndex = bottomIndex;
+      });
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => sideBarPages[index],
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBody: true,
+      resizeToAvoidBottomInset: false,
+      backgroundColor: backgroundColor2,
+      body: Stack(
+        children: [
+          /// Sidebar
+          AnimatedPositioned(
+            width: 288,
+            height: MediaQuery.of(context).size.height,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.fastOutSlowIn,
+            left: isSideBarOpen ? 0 : -288,
+            top: 0,
+            child: SideBar(
+              selectedMenu: selectedSideIndex < sidebarMenus.length
+                  ? sidebarMenus[selectedSideIndex]
+                  : sidebarMenus[0],
+              onMenuSelected: (menuIndex) {
+                selectSideMenu(menuIndex);
+              },
+            ),
+          ),
+
+          /// Main content
+          Transform(
+            alignment: Alignment.center,
+            transform: Matrix4.identity()
+              ..setEntry(3, 2, 0.001)
+              ..rotateY(1 * slideAnimation.value -
+                  30 * slideAnimation.value * pi / 180),
+            child: Transform.translate(
+              offset: Offset(slideAnimation.value * 265, 0),
+              child: Transform.scale(
+                scale: scaleAnimation.value,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(24)),
+                  child: bottomNavPages[selectedBottomIndex],
+                ),
+              ),
+            ),
+          ),
+
+          /// Menu button
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.fastOutSlowIn,
+            left: isSideBarOpen ? 220 : 0,
+            top: 16,
+            child: MenuBtn(
+              press: () {
+                if (selectedSideIndex < sideBarPages.length) {
+                  if (_animationController.value == 0) {
+                    _animationController.forward();
+                    isMenuOpenInput.value = false;
+                  } else {
+                    _animationController.reverse();
+                    isMenuOpenInput.value = true;
+                  }
+
+                  setState(() {
+                    isSideBarOpen = !isSideBarOpen;
+                  });
+                }
+              },
+              riveOnInit: (artboard) {
+                final controller = StateMachineController.fromArtboard(
+                  artboard,
+                  "State Machine",
+                );
+                artboard.addController(controller!);
+
+                isMenuOpenInput =
+                    controller.findInput<bool>("isOpen") as SMIBool;
+
+                isMenuOpenInput.value = isSideBarOpen;
+              },
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Transform.translate(
+        offset: Offset(0, 100 * slideAnimation.value),
+        child: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 58, 56, 51).withOpacity(0.8),
+              borderRadius: const BorderRadius.all(Radius.circular(24)),
+              boxShadow: [
+                BoxShadow(
+                  color: backgroundColor2.withOpacity(0.3),
+                  offset: const Offset(0, 20),
+                  blurRadius: 20,
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: bottomNavItems.asMap().entries.map((entry) {
+                int index = entry.key;
+                Menu navBar = entry.value;
+                return BtmNavItem(
+                  navBar: navBar,
+                  press: () => selectBottomNav(index, navBar),
+                  riveOnInit: (artboard) {
+                    navBar.rive.status = RiveUtils.getRiveInput(
+                      artboard,
+                      stateMachineName: navBar.rive.stateMachineName,
+                    );
+                  },
+                  selectedNav: bottomNavItems[selectedBottomIndex],
+                );
+              }).toList(),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

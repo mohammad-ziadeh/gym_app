@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614483408355",
+    "project_id": "high-fit-app",
+    "storage_bucket": "high-fit-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614483408355:android:64a0eb721a00b523a19cd6",
+        "android_client_info": {
+          "package_name": "com.example.rive_animation_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDluFvrW8bh1K5d7z-zbEofT0MMQDFwgDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
