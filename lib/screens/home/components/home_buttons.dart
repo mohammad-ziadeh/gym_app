@@ -10,39 +10,18 @@ class HomeButtons extends StatefulWidget {
 
 class _HomeButtonsState extends State<HomeButtons>
     with TickerProviderStateMixin {
-  late AnimationController _controller1;
-  late AnimationController _controller2;
-  bool _isLoaded1 = false;
-  bool _isLoaded2 = false;
+  late AnimationController _lottieController;
 
   @override
   void initState() {
     super.initState();
-    _controller1 = AnimationController(vsync: this);
-    _controller2 = AnimationController(vsync: this);
+    _lottieController = AnimationController(vsync: this);
   }
 
   @override
   void dispose() {
-    _controller1.dispose();
-    _controller2.dispose();
+    _lottieController.dispose();
     super.dispose();
-  }
-
-  void _playFullAnimation1() {
-    if (_isLoaded1) {
-      _controller1
-        ..reset()
-        ..forward();
-    }
-  }
-
-  void _playFullAnimation2() {
-    if (_isLoaded2) {
-      _controller2
-        ..reset()
-        ..forward();
-    }
   }
 
   @override
@@ -65,7 +44,9 @@ class _HomeButtonsState extends State<HomeButtons>
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: _playFullAnimation2,
+                  onTap: () async {
+                    Navigator.of(context).pushNamed('/chose');
+                  },
                   splashColor: const Color.fromARGB(255, 223, 115, 0),
                   borderRadius: BorderRadius.circular(10),
                   child: Stack(
@@ -76,15 +57,14 @@ class _HomeButtonsState extends State<HomeButtons>
                         child: Transform.scale(
                           scale: 0.8,
                           child: Lottie.asset(
+                            frameRate: FrameRate.max,
                             'assets/lottie/Food.json',
-                            controller: _controller2,
-                            animate: false,
+                            controller: _lottieController,
                             onLoaded: (composition) {
-                              _controller2.duration = composition.duration;
-
-                              _controller2.value = 0.5;
-
-                              setState(() => _isLoaded2 = true);
+                              _lottieController
+                                ..duration = composition.duration * 2
+                                ..forward();
+                              // Loop forever
                             },
                           ),
                         ),
@@ -111,8 +91,6 @@ class _HomeButtonsState extends State<HomeButtons>
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () async {
-                    _playFullAnimation1;
-                    await Future.delayed(Duration(seconds: 1));
                     Navigator.of(context).pushNamed('/chose');
                   },
                   splashColor: const Color.fromARGB(255, 223, 115, 0),
@@ -125,12 +103,14 @@ class _HomeButtonsState extends State<HomeButtons>
                         child: Transform.scale(
                           scale: 1.7,
                           child: Lottie.asset(
+                            frameRate: FrameRate.max,
                             'assets/lottie/Dumbbell.json',
-                            controller: _controller1,
-                            animate: false,
+                            controller: _lottieController,
                             onLoaded: (composition) {
-                              _controller1.duration = composition.duration;
-                              setState(() => _isLoaded1 = true);
+                              _lottieController
+                                ..duration = composition.duration * 2
+                                ..forward();
+                              // Loop forever
                             },
                           ),
                         ),

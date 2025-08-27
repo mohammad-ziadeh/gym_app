@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:rive_animation/screens/workout/type_choose.dart';
+import 'package:rive_animation/screens/workout_types/workout_chose.dart';
+import 'package:rive_animation/screens/workout_pages/equipments_workout.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/chose': (context) => TypeChose(),
+        '/equipment': (context) => EquipmentsWorkout(),
       },
       home: const OnbodingScreen(),
     );

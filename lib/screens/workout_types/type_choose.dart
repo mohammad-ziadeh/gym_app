@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive_animation/screens/workout/components/cards.dart';
+import 'package:rive_animation/screens/workout_types/components/cards.dart';
 
 class TypeChose extends StatefulWidget {
   const TypeChose({super.key});
