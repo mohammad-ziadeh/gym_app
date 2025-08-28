@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:rive_animation/screens/muscles_pages/workout_pages/equipments_workout.dart';
 
-class EquipmentsWorkout extends StatefulWidget {
-  const EquipmentsWorkout({super.key});
+class MusclesEquipmentsPage extends StatefulWidget {
+  const MusclesEquipmentsPage({super.key});
 
   @override
-  State<EquipmentsWorkout> createState() => _EquipmentsWorkoutState();
+  State<MusclesEquipmentsPage> createState() => _MusclesEquipmentsPageState();
 }
 
-class _EquipmentsWorkoutState extends State<EquipmentsWorkout> {
+class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +32,14 @@ class _EquipmentsWorkoutState extends State<EquipmentsWorkout> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         tileColor: Colors.white,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EquipmentWorkout(),
+                            ),
+                          );
+                        },
                         leading: InkWell(
                           splashColor: Colors.transparent,
                           onTap: () {
@@ -116,7 +124,14 @@ class _EquipmentsWorkoutState extends State<EquipmentsWorkout> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         tileColor: Colors.white,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EquipmentWorkout(),
+                            ),
+                          );
+                        },
                         leading: InkWell(
                           splashColor: Colors.transparent,
                           onTap: () {
