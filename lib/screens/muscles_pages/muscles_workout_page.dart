@@ -15,7 +15,6 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
         appBar: AppBar(
           title: const Text('Workout With Equipments'),
           backgroundColor: Colors.transparent,
-          foregroundColor: const Color(0xFFeeeeee),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -75,6 +74,8 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
                                             child: Text(
                                               'Strengthens posterior leg, improves balance and mobility.',
                                               textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: Colors.black),
                                             )),
                                       ),
                                     ],
@@ -94,9 +95,15 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
                             ),
                           ),
                         ),
-                        title: const Text('Hamstrings'),
+                        title: const Text(
+                          'Hamstrings',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
                         subtitle: const Text(
-                            'Muscles at back of thigh for knee flexion.'),
+                          'Muscles at back of thigh for knee flexion.',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     ),
                     Positioned(
@@ -167,6 +174,8 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
                                             child: Text(
                                               'Strengthens posterior leg, improves balance and mobility.',
                                               textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: Colors.black),
                                             )),
                                       ),
                                     ],
@@ -186,9 +195,15 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
                             ),
                           ),
                         ),
-                        title: const Text('Lowerback'),
+                        title: const Text(
+                          'Lowerback',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
                         subtitle: const Text(
-                            'Muscles at back of thigh for knee flexion.'),
+                          'Muscles at back of thigh for knee flexion.',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     ),
                     Positioned(

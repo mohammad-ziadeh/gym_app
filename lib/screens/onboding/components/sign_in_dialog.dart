@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'sign_in_form.dart';
 
-void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
+void showCustomDialog(BuildContext context,
+    {required ValueChanged onValue, required VoidCallback toggleTheme}) {
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -53,7 +54,7 @@ void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      const SignInForm(),
+                      SignInForm(toggleTheme: toggleTheme),
                     ],
                   ),
                 ),

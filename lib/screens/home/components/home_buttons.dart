@@ -28,8 +28,7 @@ class _HomeButtonsState extends State<HomeButtons>
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        color: const Color(0xFF1B1A17),
+      child: SizedBox(
         height: 200,
         width: double.infinity,
         child: Row(

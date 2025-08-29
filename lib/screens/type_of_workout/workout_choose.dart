@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:rive_animation/screens/workout_types/components/cards.dart';
+import 'package:rive_animation/screens/type_of_workout/components/cards.dart';
 
-class TypeChose extends StatefulWidget {
-  const TypeChose({super.key});
+class TypeChoose extends StatefulWidget {
+  const TypeChoose({super.key});
 
   @override
-  State<TypeChose> createState() => _TypeChoseState();
+  State<TypeChoose> createState() => _TypeChooseState();
 }
 
-class _TypeChoseState extends State<TypeChose> {
+class _TypeChooseState extends State<TypeChoose> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Sidetest Page'),
-            backgroundColor: Colors.transparent,
-            foregroundColor: Color(0xFFeeeeee)),
+          title: const Text('Workout Types'),
+          backgroundColor: Colors.transparent,
+        ),
         body: Padding(
           padding: const EdgeInsets.only(top: 60),
           child: Column(
             children: [
               Text(
-                'Chose your way\n of workout',
+                'Choose your way\n of workout',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color(0xFFeeeeee),
                   fontSize: 27,
                 ),
               ),

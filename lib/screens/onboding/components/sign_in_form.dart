@@ -5,9 +5,9 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/screens/entryPoint/entry_point.dart';
 
 class SignInForm extends StatefulWidget {
-  const SignInForm({
-    super.key,
-  });
+  final VoidCallback toggleTheme;
+
+  const SignInForm({super.key, required this.toggleTheme});
 
   @override
   State<SignInForm> createState() => _SignInFormState();
@@ -59,14 +59,13 @@ class _SignInFormState extends State<SignInForm> {
                 isShowLoading = false;
               });
               confetti.fire();
-              // Navigate & hide confetti
               Future.delayed(const Duration(seconds: 1), () {
-                // Navigator.pop(context);
                 if (!context.mounted) return;
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const EntryPoint(),
+                    builder: (context) =>
+                        EntryPoint(toggleTheme: widget.toggleTheme),
                   ),
                 );
               });

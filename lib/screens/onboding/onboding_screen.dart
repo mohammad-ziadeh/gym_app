@@ -7,7 +7,10 @@ import 'components/animated_btn.dart';
 import 'components/sign_in_dialog.dart';
 
 class OnbodingScreen extends StatefulWidget {
-  const OnbodingScreen({super.key});
+  final VoidCallback toggleTheme; 
+
+  const OnbodingScreen(
+      {super.key, required this.toggleTheme}); 
 
   @override
   State<OnbodingScreen> createState() => _OnbodingScreenState();
@@ -103,7 +106,9 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
                             showCustomDialog(
                               context,
                               onValue: (_) {},
+                              toggleTheme: widget.toggleTheme,
                             );
+
                             // showCustomDialog(
                             //   context,
                             //   onValue: (_) {

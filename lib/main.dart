@@ -1,36 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:rive_animation/screens/workout_types/workout_chose.dart';
+import 'package:rive_animation/screens/type_of_workout/workout_choose.dart';
 import 'package:rive_animation/screens/muscles_pages/muscles_workout_page.dart';
 import 'firebase_options.dart';
+import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.dark;
+
+  void _toggleTheme() {
+    setState(() {
+      _themeMode =
+          (_themeMode == ThemeMode.light) ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Flutter Way',
+      title: 'HighFit',
+      themeMode: _themeMode,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF1B1A17),
-        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.primaryTextLight,
+          iconTheme: IconThemeData(color: AppColors.primaryTextLight),
+          foregroundColor: AppColors.primaryTextLight,
+        ),
+        scaffoldBackgroundColor: AppColors.lightBackground,
         fontFamily: "Intel",
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(foregroundColor: Colors.white),
+          style:
+              ElevatedButton.styleFrom(foregroundColor: AppColors.buttonLight),
         ),
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: AppColors.cardBackgroundLight,
           errorStyle: TextStyle(height: 0),
           border: defaultInputBorder,
           enabledBorder: defaultInputBorder,
@@ -38,11 +69,33 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.primaryTextDark,
+          iconTheme: IconThemeData(color: AppColors.primaryTextDark),
+          foregroundColor: AppColors.primaryTextDark,
+        ),
+        textTheme: ThemeData.dark().textTheme.apply(
+              fontFamily: "Intel",
+              bodyColor: AppColors.primaryTextDark,
+            ),
+        scaffoldBackgroundColor: AppColors.darkBackground,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style:
+              ElevatedButton.styleFrom(foregroundColor: AppColors.buttonDark),
+        ),
+      ),
       routes: {
-        '/chose': (context) => TypeChose(),
+        '/chose': (context) => TypeChoose(),
         '/equipment': (context) => MusclesEquipmentsPage(),
       },
-      home: const OnbodingScreen(),
+      home: OnbodingScreen(toggleTheme: _toggleTheme),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      builder: (context, child) {
+        return Directionality(textDirection: TextDirection.ltr, child: child!);
+      },
     );
   }
 }

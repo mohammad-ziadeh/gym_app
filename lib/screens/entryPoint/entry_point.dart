@@ -1,11 +1,12 @@
 import 'dart:math';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/home/home_screen.dart';
 import 'package:rive_animation/screens/profile/profile_page.dart';
-import 'package:rive_animation/screens/workout_types/sidetest.dart';
-import 'package:rive_animation/screens/workout_types/workout_chose.dart';
+import 'package:rive_animation/screens/type_of_workout/sidetest.dart';
+import 'package:rive_animation/screens/type_of_workout/workout_choose.dart';
 import 'package:rive_animation/screens/test2/test2.dart';
 import 'package:rive_animation/screens/test3/test3.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
@@ -16,7 +17,8 @@ import 'components/menu_btn.dart';
 import 'components/side_bar.dart';
 
 class EntryPoint extends StatefulWidget {
-  const EntryPoint({super.key});
+  final VoidCallback toggleTheme;
+  const EntryPoint({super.key, required this.toggleTheme});
 
   @override
   State<EntryPoint> createState() => _EntryPointState();
@@ -34,7 +36,7 @@ class _EntryPointState extends State<EntryPoint>
   /// Bottom nav pages
   final List<Widget> bottomNavPages = [
     const HomePage(),
-    const TypeChose(),
+    const TypeChoose(),
     const Test2(),
     const Test3(),
     const Profile(),
@@ -81,7 +83,9 @@ class _EntryPointState extends State<EntryPoint>
   }
 
   void selectBottomNav(int index, Menu navBar) {
-    RiveUtils.chnageSMIBoolState(navBar.rive.status!);
+    if (navBar.rive.status != null) {
+      RiveUtils.chnageSMIBoolState(navBar.rive.status!);
+    }
     setState(() {
       selectedBottomIndex = index;
     });
@@ -117,7 +121,7 @@ class _EntryPointState extends State<EntryPoint>
     return Scaffold(
       extendBody: true,
       resizeToAvoidBottomInset: false,
-      backgroundColor: backgroundColor2,
+      backgroundColor: AppColors.darkBackground,
       body: Stack(
         children: [
           /// Sidebar
@@ -134,6 +138,16 @@ class _EntryPointState extends State<EntryPoint>
                   : sidebarMenus[0],
               onMenuSelected: (menuIndex) {
                 selectSideMenu(menuIndex);
+              },
+              onToggleTheme: () {
+                widget.toggleTheme();
+              },
+              onChangeLanguage: () {
+                if (context.locale.languageCode == 'en') {
+                  context.setLocale(const Locale('ar'));
+                } else {
+                  context.setLocale(const Locale('en'));
+                }
               },
             ),
           ),
@@ -206,7 +220,7 @@ class _EntryPointState extends State<EntryPoint>
               borderRadius: const BorderRadius.all(Radius.circular(24)),
               boxShadow: [
                 BoxShadow(
-                  color: backgroundColor2.withOpacity(0.3),
+                  color: AppColors.darkBackground.withOpacity(0.3),
                   offset: const Offset(0, 20),
                   blurRadius: 20,
                 ),

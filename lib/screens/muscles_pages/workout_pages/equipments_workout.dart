@@ -61,7 +61,6 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
         appBar: AppBar(
           title: const Text('Hamstrings Workout'),
           backgroundColor: Colors.transparent,
-          foregroundColor: const Color(0xFFeeeeee),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -153,26 +152,28 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                   'PREPARATION',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 20,
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      fontSize: 20,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 10),
                                                 Text(
                                                   'Lie face down on the machine. Secure your ankles under the lever pad and hands on the handles.',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontSize: 18,
-                                                  ),
+                                                      fontSize: 18,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 20),
                                                 Text(
                                                   'EXECUTION',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 20,
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      fontSize: 20,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 10),
                                                 Column(
@@ -190,6 +191,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -197,6 +199,8 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             'Squeeze your hamstrings to curl your legs up and raise your heels toward your hips, keeping your thighs and hips on the bench.',
                                                             style: TextStyle(
                                                               fontSize: 18,
+                                                              color:
+                                                                  Colors.black,
                                                             ),
                                                           ),
                                                         ),
@@ -213,6 +217,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -220,6 +225,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                           'Hold for a few seconds at the top position.',
                                                           style: TextStyle(
                                                             fontSize: 18,
+                                                            color: Colors.black,
                                                           ),
                                                         )),
                                                       ],
@@ -235,6 +241,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -242,6 +249,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                           'Return to the starting position and repeat.',
                                                           style: TextStyle(
                                                             fontSize: 18,
+                                                            color: Colors.black,
                                                           ),
                                                         )),
                                                       ],
@@ -255,6 +263,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                     fontSize: 20,
+                                                    color: Colors.black,
                                                   ),
                                                 ),
                                                 SizedBox(height: 10),
@@ -273,6 +282,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -280,6 +290,8 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             'Do not lock out your knees at the bottom.',
                                                             style: TextStyle(
                                                               fontSize: 18,
+                                                              color:
+                                                                  Colors.black,
                                                             ),
                                                           ),
                                                         ),
@@ -348,10 +360,12 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                     ),
                     title: const Text(
                       'Hamstring Curl',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                     subtitle: const Text(
-                        'Muscles at back of thigh for knee flexion.'),
+                        'Muscles at back of thigh for knee flexion.',
+                        style: TextStyle(color: Colors.black)),
                   ),
                 ),
               ),
@@ -439,6 +453,8 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                             child: Text(
                                               'Strengthens posterior leg, improves balance and mobility.',
                                               textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: Colors.black),
                                             ),
                                           ),
                                         ),
@@ -467,10 +483,12 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                     ),
                     title: const Text(
                       'Pendulum Squat',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                     subtitle: const Text(
-                        'Muscles at back of thigh for knee flexion.'),
+                        'Muscles at back of thigh for knee flexion.',
+                        style: TextStyle(color: Colors.black)),
                   ),
                 ),
               ),
@@ -562,26 +580,28 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                   'PREPARATION',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 20,
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      fontSize: 20,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 10),
                                                 Text(
                                                   'Lie face down on the machine. Secure your ankles under the lever pad and hands on the handles.',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontSize: 18,
-                                                  ),
+                                                      fontSize: 18,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 20),
                                                 Text(
                                                   'EXECUTION',
                                                   textAlign: TextAlign.start,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 20,
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      fontSize: 20,
+                                                      color: Colors.black),
                                                 ),
                                                 SizedBox(height: 10),
                                                 Column(
@@ -599,6 +619,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -606,6 +627,8 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             'Squeeze your hamstrings to curl your legs up and raise your heels toward your hips, keeping your thighs and hips on the bench.',
                                                             style: TextStyle(
                                                               fontSize: 18,
+                                                              color:
+                                                                  Colors.black,
                                                             ),
                                                           ),
                                                         ),
@@ -622,6 +645,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -629,6 +653,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                           'Hold for a few seconds at the top position.',
                                                           style: TextStyle(
                                                             fontSize: 18,
+                                                            color: Colors.black,
                                                           ),
                                                         )),
                                                       ],
@@ -644,6 +669,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -651,6 +677,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                           'Return to the starting position and repeat.',
                                                           style: TextStyle(
                                                             fontSize: 18,
+                                                            color: Colors.black,
                                                           ),
                                                         )),
                                                       ],
@@ -664,6 +691,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                     fontSize: 20,
+                                                    color: Colors.black,
                                                   ),
                                                 ),
                                                 SizedBox(height: 10),
@@ -682,6 +710,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 20,
+                                                            color: Colors.black,
                                                           ),
                                                         ),
                                                         Expanded(
@@ -689,6 +718,8 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                                                             'Do not lock out your knees at the bottom.',
                                                             style: TextStyle(
                                                               fontSize: 18,
+                                                              color:
+                                                                  Colors.black,
                                                             ),
                                                           ),
                                                         ),
@@ -757,10 +788,13 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                     ),
                     title: const Text(
                       'Seated Hip Adductor',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                     subtitle: const Text(
-                        'Muscles at inner thigh for hip adduction and thigh stabilization.'),
+                      'Muscles at inner thigh for hip adduction and thigh stabilization.',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               ),

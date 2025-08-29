@@ -5,12 +5,13 @@ import '../../../model/menu.dart';
 import 'animated_bar.dart';
 
 class BtmNavItem extends StatelessWidget {
-  const BtmNavItem(
-      {super.key,
-      required this.navBar,
-      required this.press,
-      required this.riveOnInit,
-      required this.selectedNav});
+  const BtmNavItem({
+    super.key,
+    required this.navBar,
+    required this.press,
+    required this.riveOnInit,
+    required this.selectedNav,
+  });
 
   final Menu navBar;
   final VoidCallback press;
@@ -19,6 +20,22 @@ class BtmNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget iconWidget;
+
+    if (navBar.icon != null) {
+      iconWidget = Icon(
+        navBar.icon,
+        size: 30,
+        color: selectedNav == navBar ? Colors.white : Colors.grey,
+      );
+    } else {
+      iconWidget = RiveAnimation.asset(
+        navBar.rive.src,
+        artboard: navBar.rive.artboard,
+        onInit: riveOnInit,
+      );
+    }
+
     return GestureDetector(
       onTap: press,
       child: Column(
@@ -30,11 +47,7 @@ class BtmNavItem extends StatelessWidget {
             width: 36,
             child: Opacity(
               opacity: selectedNav == navBar ? 1 : 0.5,
-              child: RiveAnimation.asset(
-                navBar.rive.src,
-                artboard: navBar.rive.artboard,
-                onInit: riveOnInit,
-              ),
+              child: iconWidget,
             ),
           ),
         ],

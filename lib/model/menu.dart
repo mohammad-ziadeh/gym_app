@@ -1,10 +1,13 @@
+import 'package:flutter/material.dart';
+
 import 'rive_model.dart';
 
 class Menu {
   final String title;
   final RiveModel rive;
+  final IconData? icon;
 
-  Menu({required this.title, required this.rive});
+  Menu({required this.title, required this.rive, this.icon});
 }
 
 List<Menu> sidebarMenus = [
@@ -57,6 +60,7 @@ List<Menu> bottomNavItems = [
   ),
   Menu(
     title: "Search",
+    icon: Icons.fitness_center_outlined,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
         artboard: "SEARCH",
@@ -71,6 +75,7 @@ List<Menu> bottomNavItems = [
   ),
   Menu(
     title: "Notification",
+    icon: Icons.fastfood_outlined,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
         artboard: "BELL",
