@@ -363,8 +363,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
-                    subtitle: const Text(
-                        'Muscles at back of thigh for knee flexion.',
+                    subtitle: const Text('2 Sets x 14 Reps',
                         style: TextStyle(color: Colors.black)),
                   ),
                 ),
@@ -486,8 +485,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
-                    subtitle: const Text(
-                        'Muscles at back of thigh for knee flexion.',
+                    subtitle: const Text('2 Sets X 12 Reps',
                         style: TextStyle(color: Colors.black)),
                   ),
                 ),
@@ -792,7 +790,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                     subtitle: const Text(
-                      'Muscles at inner thigh for hip adduction and thigh stabilization.',
+                      '2 Sets X 12 Reps',
                       style: TextStyle(color: Colors.black),
                     ),
                   ),

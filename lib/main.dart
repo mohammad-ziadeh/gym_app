@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:rive_animation/screens/type_of_workout/workout_choose.dart';
-import 'package:rive_animation/screens/muscles_pages/muscles_workout_page.dart';
 import 'firebase_options.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 
@@ -46,6 +44,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'HighFit',
+      debugShowCheckedModeBanner: false,
       themeMode: _themeMode,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
@@ -85,10 +84,6 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton.styleFrom(foregroundColor: AppColors.buttonDark),
         ),
       ),
-      routes: {
-        '/chose': (context) => TypeChoose(),
-        '/equipment': (context) => MusclesEquipmentsPage(),
-      },
       home: OnbodingScreen(toggleTheme: _toggleTheme),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

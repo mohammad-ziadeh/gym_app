@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive_animation/screens/muscles_pages/muscles_workout_page.dart';
 
 class Cards extends StatefulWidget {
   const Cards({super.key});
@@ -46,7 +47,29 @@ class _CardsState extends State<Cards> with TickerProviderStateMixin {
               splashColor: lightBackColor,
               borderRadius: BorderRadius.circular(20),
               onTap: () {
-                Navigator.of(context).pushNamed('/equipment');
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const MusclesEquipmentsPage(),
+                    transitionDuration: const Duration(milliseconds: 300),
+                    transitionsBuilder: (_, animation, __, child) {
+                      final curvedAnimation = CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.easeInOut,
+                      );
+
+                      return SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(1, 0),
+                          end: Offset.zero,
+                        ).animate(curvedAnimation),
+                        child: FadeTransition(
+                          opacity: curvedAnimation,
+                          child: child,
+                        ),
+                      );
+                    },
+                  ),
+                );
               },
               child: SizedBox(
                 height: 100,
