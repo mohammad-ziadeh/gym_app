@@ -46,7 +46,7 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
 
                                 return SlideTransition(
                                   position: Tween<Offset>(
-                                    begin: const Offset(1, 0),
+                                    begin: const Offset(0, 1),
                                     end: Offset.zero,
                                   ).animate(curvedAnimation),
                                   child: FadeTransition(
