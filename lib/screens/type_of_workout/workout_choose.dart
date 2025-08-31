@@ -13,7 +13,7 @@ class _TypeChooseState extends State<TypeChoose> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Workout Types'),
+          title: const Text(''),
           backgroundColor: Colors.transparent,
         ),
         body: Padding(

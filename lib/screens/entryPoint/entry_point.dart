@@ -7,8 +7,8 @@ import 'package:rive_animation/screens/home/home_screen.dart';
 import 'package:rive_animation/screens/profile/profile_page.dart';
 import 'package:rive_animation/screens/type_of_workout/sidetest.dart';
 import 'package:rive_animation/screens/type_of_workout/workout_choose.dart';
-import 'package:rive_animation/screens/test2/test2.dart';
-import 'package:rive_animation/screens/test3/test3.dart';
+import 'package:rive_animation/screens/waiting_events/waiting_room.dart';
+import 'package:rive_animation/screens/food_ordering/food_ordering_page.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 import '../../model/menu.dart';
@@ -37,17 +37,17 @@ class _EntryPointState extends State<EntryPoint>
   final List<Widget> bottomNavPages = [
     const HomePage(),
     const TypeChoose(),
-    const Test2(),
-    const Test3(),
+    const WaitingRoom(),
+    const FoodPage(),
     const Profile(),
   ];
 
   /// Sidebar pages
   final List<Widget> sideBarPages = [
     const HomePage(),
-    const Sidetest(),
-    const Test2(),
-    const Test3(),
+    const Sidetest(), // make it the follow your plan
+    const WaitingRoom(),
+    const FoodPage(),
   ];
 
   late AnimationController _animationController;

@@ -9,6 +9,8 @@ class BodyStatsComparison extends StatelessWidget {
     'Water': {'current': 55, 'previous': 54, 'unit': '%'},
   };
 
+  BodyStatsComparison({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

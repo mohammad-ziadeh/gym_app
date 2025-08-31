@@ -66,7 +66,10 @@ class _WeekDaysWorkoutState extends State<WeekDaysWorkout> {
                 child: Card(
                   color: AppColors.orange,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
+                      borderRadius: BorderRadius.circular(16),
+                      side: BorderSide(
+                          color: const Color.fromARGB(139, 109, 65, 0),
+                          width: 4)),
                   elevation: 4,
                   child: SizedBox(
                     width: 140,
