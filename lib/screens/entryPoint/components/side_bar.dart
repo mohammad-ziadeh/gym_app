@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:rive_animation/constants.dart';
 import '../../../model/menu.dart';
 import '../../../utils/rive_utils.dart';
@@ -8,15 +9,15 @@ import 'side_menu.dart';
 class SideBar extends StatefulWidget {
   final ValueChanged<int> onMenuSelected;
   final Menu selectedMenu;
-  final VoidCallback onToggleTheme; // ✅ NEW
-  final VoidCallback onChangeLanguage; // ✅ NEW
+  final VoidCallback onToggleTheme;
+  final VoidCallback onChangeLanguage;
 
   const SideBar({
     super.key,
     required this.onMenuSelected,
     required this.selectedMenu,
-    required this.onToggleTheme, // ✅
-    required this.onChangeLanguage, // ✅
+    required this.onToggleTheme,
+    required this.onChangeLanguage,
   });
 
   @override
@@ -41,7 +42,7 @@ class _SideBarState extends State<SideBar> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const InfoCard(name: "Abu Anwar", bio: "YouTuber"),
+                const InfoCard(name: "Mohammad", bio: "User"),
 
                 // Browse section
                 Padding(
@@ -127,6 +128,14 @@ class _SideBarState extends State<SideBar> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: widget.onChangeLanguage,
+                ),
+                const SizedBox(height: 44),
+                Center(
+                  child: Transform.scale(
+                    scale: 7,
+                    child: SvgPicture.asset("assets/icons/logo.svg",
+                        width: 20, height: 20),
+                  ),
                 ),
               ],
             )),

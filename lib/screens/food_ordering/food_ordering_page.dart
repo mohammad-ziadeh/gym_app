@@ -11,7 +11,10 @@ class FoodPage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          leading: Text(''),
           title: const Text('Food Ordering'),
+          automaticallyImplyLeading: false,
+          forceMaterialTransparency: true,
           bottom: TabBar(
             labelColor: AppColors.orange,
             unselectedLabelColor: Colors.grey,

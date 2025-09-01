@@ -15,6 +15,8 @@ class _TypeChooseState extends State<TypeChoose> {
         appBar: AppBar(
           title: const Text(''),
           backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+          forceMaterialTransparency: true,
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 60),

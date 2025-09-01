@@ -15,7 +15,9 @@ class _WaitingRoomState extends State<WaitingRoom> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Events'),
+          leading: Text(''),
           backgroundColor: Colors.transparent,
+          forceMaterialTransparency: true,
         ),
         body: SingleChildScrollView(
           child: Column(

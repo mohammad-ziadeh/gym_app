@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
+        forceMaterialTransparency: true,
         title: const Text(''),
       ),
       body: Column(

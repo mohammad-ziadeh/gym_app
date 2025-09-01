@@ -48,6 +48,7 @@ class _FoodStatusState extends State<FoodStatus> {
                     child: Transform.scale(
                       scale: 2.2,
                       child: Lottie.asset(
+                        frameRate: FrameRate.max,
                         isDone
                             ? 'assets/lottie/Food_Done.json'
                             : 'assets/lottie/Preparing_Food.json',

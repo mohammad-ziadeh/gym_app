@@ -39,7 +39,7 @@ class _EntryPointState extends State<EntryPoint>
     const TypeChoose(),
     const WaitingRoom(),
     const FoodPage(),
-    const Profile(),
+    const ProfileScreen(),
   ];
 
   /// Sidebar pages

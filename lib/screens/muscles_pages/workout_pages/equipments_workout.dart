@@ -61,6 +61,7 @@ class _EquipmentWorkoutState extends State<EquipmentWorkout> {
         appBar: AppBar(
           title: const Text('Hamstrings Workout'),
           backgroundColor: Colors.transparent,
+          forceMaterialTransparency: true,
         ),
         body: SingleChildScrollView(
           child: Padding(

@@ -15,6 +15,7 @@ class _MusclesEquipmentsPageState extends State<MusclesEquipmentsPage> {
         appBar: AppBar(
           title: const Text('Workout With Equipments'),
           backgroundColor: Colors.transparent,
+          forceMaterialTransparency: true,
         ),
         body: SingleChildScrollView(
           child: Padding(
