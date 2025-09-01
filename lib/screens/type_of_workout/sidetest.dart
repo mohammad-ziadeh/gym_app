@@ -12,11 +12,12 @@ class _SidetestState extends State<Sidetest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sidetest Page'),
+        title: Text('Your Daily Workouut'),
+        backgroundColor: Colors.transparent,
       ),
       body: Center(
         child: Text(
-          'Sidetest Page',
+          'Your Daily Workouut',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
