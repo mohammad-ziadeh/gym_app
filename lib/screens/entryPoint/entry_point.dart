@@ -46,8 +46,8 @@ class _EntryPointState extends State<EntryPoint>
   final List<Widget> sideBarPages = [
     const HomePage(),
     const Sidetest(), // make it the follow your plan
-    const WaitingRoom(),
     const FoodPage(),
+    const ProfileScreen(),
   ];
 
   late AnimationController _animationController;

@@ -175,7 +175,7 @@ class _CardsState extends State<Cards> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        'Follow Your Plan',
+                        'Your Daily Workout',
                         style: TextStyle(
                           fontSize: 18,
                           color: Color(0xFFeeeeee),

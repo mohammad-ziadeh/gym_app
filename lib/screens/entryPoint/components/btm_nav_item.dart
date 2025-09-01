@@ -13,7 +13,7 @@ class BtmNavItem extends StatelessWidget {
     required this.selectedNav,
   });
 
-  final Menu navBar;
+  final Menu navBar; 
   final VoidCallback press;
   final ValueChanged<Artboard> riveOnInit;
   final Menu selectedNav;

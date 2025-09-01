@@ -4,12 +4,13 @@ import 'package:rive/rive.dart';
 import '../../../model/menu.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu(
-      {super.key,
-      required this.menu,
-      required this.press,
-      required this.riveOnInit,
-      required this.selectedMenu});
+  const SideMenu({
+    super.key,
+    required this.menu,
+    required this.press,
+    required this.riveOnInit,
+    required this.selectedMenu,
+  });
 
   final Menu menu;
   final VoidCallback press;
@@ -18,6 +19,22 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Decide whether to use Icon or RiveAnimation
+    Widget iconWidget;
+    if (menu.icon != null) {
+      iconWidget = Icon(
+        menu.icon,
+        size: 30,
+        color: selectedMenu == menu ? Colors.white : Colors.grey,
+      );
+    } else {
+      iconWidget = RiveAnimation.asset(
+        menu.rive.src,
+        artboard: menu.rive.artboard,
+        onInit: riveOnInit,
+      );
+    }
+
     return Column(
       children: [
         const Padding(
@@ -41,13 +58,12 @@ class SideMenu extends StatelessWidget {
             ),
             ListTile(
               onTap: press,
-              leading: SizedBox(
-                height: 36,
-                width: 36,
-                child: RiveAnimation.asset(
-                  menu.rive.src,
-                  artboard: menu.rive.artboard,
-                  onInit: riveOnInit,
+              leading: Opacity(
+                opacity: selectedMenu == menu ? 1 : 0.5,
+                child: SizedBox(
+                  height: 36,
+                  width: 36,
+                  child: iconWidget, // Icon or RiveAnimation
                 ),
               ),
               title: Text(

@@ -62,17 +62,21 @@ class _SideBarState extends State<SideBar> {
                     menu: menu,
                     selectedMenu: selectedSideMenu,
                     press: () {
-                      RiveUtils.chnageSMIBoolState(menu.rive.status!);
+                      if (menu.icon == null) {
+                        RiveUtils.chnageSMIBoolState(menu.rive.status!);
+                      }
                       setState(() {
                         selectedSideMenu = menu;
                       });
                       widget.onMenuSelected(index);
                     },
                     riveOnInit: (artboard) {
-                      menu.rive.status = RiveUtils.getRiveInput(
-                        artboard,
-                        stateMachineName: menu.rive.stateMachineName,
-                      );
+                      if (menu.icon == null) {
+                        menu.rive.status = RiveUtils.getRiveInput(
+                          artboard,
+                          stateMachineName: menu.rive.stateMachineName,
+                        );
+                      }
                     },
                   );
                 }),

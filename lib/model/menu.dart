@@ -19,27 +19,29 @@ List<Menu> sidebarMenus = [
         stateMachineName: "HOME_interactivity"),
   ),
   Menu(
-    title: "Search",
+    title: "Daily Workout",
+    icon: Icons.fitness_center,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
         artboard: "SEARCH",
         stateMachineName: "SEARCH_Interactivity"),
   ),
   Menu(
-    title: "Favorites",
+    title: "Food",
+    icon: Icons.fastfood_outlined,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
-        artboard: "LIKE/STAR",
-        stateMachineName: "STAR_Interactivity"),
+        artboard: "BELL",
+        stateMachineName: "BELL_Interactivity"),
   ),
 ];
 List<Menu> sidebarMenus2 = [
   Menu(
-    title: "History",
+    title: "Profile",
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
-        artboard: "TIMER",
-        stateMachineName: "TIMER_Interactivity"),
+        artboard: "USER",
+        stateMachineName: "USER_Interactivity"),
   ),
   // Menu(
   //   title: "Notifications",
@@ -59,7 +61,7 @@ List<Menu> bottomNavItems = [
         stateMachineName: "HOME_interactivity"),
   ),
   Menu(
-    title: "Search",
+    title: "Workout",
     icon: Icons.fitness_center_outlined,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
@@ -74,7 +76,7 @@ List<Menu> bottomNavItems = [
         stateMachineName: "TIMER_Interactivity"),
   ),
   Menu(
-    title: "Notification",
+    title: "Food",
     icon: Icons.fastfood_outlined,
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
