@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,6 +46,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDuK5CqfcCCL4khz_nPYCI8WZS1B9sZV8o',
+    appId: '1:614483408355:web:72bda6371b8fce74a19cd6',
+    messagingSenderId: '614483408355',
+    projectId: 'high-fit-app',
+    authDomain: 'high-fit-app.firebaseapp.com',
+    storageBucket: 'high-fit-app.firebasestorage.app',
+    measurementId: 'G-1RHNPJ6M5Q',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDluFvrW8bh1K5d7z-zbEofT0MMQDFwgDY',
     appId: '1:614483408355:android:64a0eb721a00b523a19cd6',
@@ -65,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'high-fit-app.firebasestorage.app',
     iosBundleId: 'com.example.riveAnimationNew',
   );
-
 }

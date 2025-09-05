@@ -63,7 +63,14 @@ class _TopPartState extends State<TopPart> {
                 ? SizedBox(
                     width: double.infinity,
                     height: topHeight,
-                    child: VideoPlayer(_controller),
+                    child: FittedBox(
+                      fit: BoxFit.cover, 
+                      child: SizedBox(
+                        width: _controller.value.size.width,
+                        height: _controller.value.size.height,
+                        child: VideoPlayer(_controller),
+                      ),
+                    ),
                   )
                 : Container(
                     color: const Color.fromARGB(255, 22, 21, 19),

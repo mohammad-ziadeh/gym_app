@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 450,
+      height: 410,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.lightBackground,

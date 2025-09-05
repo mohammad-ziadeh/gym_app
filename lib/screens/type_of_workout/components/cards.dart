@@ -34,6 +34,8 @@ class _CardsState extends State<Cards> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -118,7 +120,29 @@ class _CardsState extends State<Cards> with TickerProviderStateMixin {
               splashColor: lightBackColor,
               borderRadius: BorderRadius.circular(20),
               onTap: () {
-                Navigator.of(context).pushNamed('/noEquipment');
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const MusclesEquipmentsPage(),
+                    transitionDuration: const Duration(milliseconds: 300),
+                    transitionsBuilder: (_, animation, __, child) {
+                      final curvedAnimation = CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.easeInOut,
+                      );
+
+                      return SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(1, 0),
+                          end: Offset.zero,
+                        ).animate(curvedAnimation),
+                        child: FadeTransition(
+                          opacity: curvedAnimation,
+                          child: child,
+                        ),
+                      );
+                    },
+                  ),
+                );
               },
               child: SizedBox(
                 height: 100,
@@ -164,7 +188,29 @@ class _CardsState extends State<Cards> with TickerProviderStateMixin {
               splashColor: lightBackColor,
               borderRadius: BorderRadius.circular(20),
               onTap: () {
-                Navigator.of(context).pushNamed('/plan');
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const MusclesEquipmentsPage(),
+                    transitionDuration: const Duration(milliseconds: 300),
+                    transitionsBuilder: (_, animation, __, child) {
+                      final curvedAnimation = CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.easeInOut,
+                      );
+
+                      return SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(1, 0),
+                          end: Offset.zero,
+                        ).animate(curvedAnimation),
+                        child: FadeTransition(
+                          opacity: curvedAnimation,
+                          child: child,
+                        ),
+                      );
+                    },
+                  ),
+                );
               },
               child: SizedBox(
                 height: 100,
